@@ -1,0 +1,55 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flex Panels ✌🏽</title>
+  <link href="fonts/Another_Monday.otf" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="panels">
+        <div class="panel panel1">
+          <p>There's more</p>
+          <p>For you</p>
+          <p>To see</p>
+        </div>
+        <div class="panel panel2">
+          <p>Take The</p>
+          <p>Leap</p>
+          <p>Now</p>
+        </div>
+        <div class="panel panel3">
+          <p>Live</p>
+          <p>The</p>
+          <p>Dream</p>
+        </div>
+        <div class="panel panel4">
+          <p>Embrace</p>
+          <p>Your</p>
+          <p>Fate</p>
+        </div>
+        <div class="panel panel5">
+          <p>This is</p>
+          <p>Not</p>
+          <p>The end...</p>
+        </div>
+      </div>
+<script>
+const panels = document.querySelectorAll(".panel"); // Select all the document elements with the  ".panel" coincidence.
+
+function toggleOpen(){
+  this.classList.toggle("open");// This function will toggle the class "open" on the nodes found by const panels.
+}
+
+function toggleActive(e){
+  if(e.propertyName.includes("font-size")){ // If at the end of a transition the property name includes the term "font-size", will
+    this.classList.toggle("open-active"); // toggle the class "open-active" on the element which transition just end.
+  }
+}
+
+panels.forEach(panel => panel.addEventListener("click", toggleOpen)); //Let's listen to the click event for each node found by cons panels and run a function.
+panels.forEach(panel => panel.addEventListener("transitionend", toggleActive));//Let's listen for the transitionend event to run a function.
+</script>
+</body>
+</html>
